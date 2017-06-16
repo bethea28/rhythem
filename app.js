@@ -26,11 +26,11 @@ const mapStateToProps = state => {
 }
 
 const dispatchStateToProps = dispatch => {
-  return {
-    // bindActionCreators({
-    //
-    // }, dispatch)
-  }
+  // return {
+  //   bindActionCreators({
+  //   handleChange
+  //   }, dispatch)
+  // }
 }
 
 export default connect (
