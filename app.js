@@ -20,17 +20,17 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
-  return {
+    return {
 
-  }
+    }
 }
 
 const dispatchStateToProps = dispatch => {
-  // return {
-  //   bindActionCreators({
-  //   handleChange
-  //   }, dispatch)
-  // }
+  return {
+    // bindActionCreators({
+    // handleChange
+    // }, dispatch)
+  }
 }
 
 export default connect (
