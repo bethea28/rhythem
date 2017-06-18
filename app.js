@@ -19,7 +19,7 @@ const App = (props) => {
         <input type = 'submit'></input>
       </form>
       {props.name}
-      {Object.values(props.list)}
+      {Object.keys(props.list)}
       {props.children}
     </div>
   )
