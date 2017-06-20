@@ -5,7 +5,7 @@ import store from './store'
 import {Provider} from 'react-redux'
 
 
-import {render} from 'react-dom
+import {render} from 'react-dom'
 import ReactDOM from 'react-dom'
 import {HashRouter, Route, Router} from 'react-router-dom'
 
