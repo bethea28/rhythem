@@ -4410,7 +4410,7 @@
 	      _react2.default.createElement('input', { type: 'submit' })
 	    ),
 	    props.name,
-	    Object.values(props.list),
+	    Object.keys(props.list),
 	    props.children
 	  );
 	};
