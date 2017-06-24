@@ -4,7 +4,7 @@ import {bindActionCreators} from 'redux'
 import {change, submit} from './actions'
 
 
-const App = (props) => {
+const App = (props) =>
   // const submit = (props) => {
   //   event.preventDefault()
   //   console.log(props.name)
