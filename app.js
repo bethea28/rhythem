@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
-import {change, submit} from './action'
+import {change, submit} from './actions'
 
 
 const App = (props) => {
