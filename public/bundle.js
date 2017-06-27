@@ -4397,7 +4397,7 @@
 	  //   // let person =  props.list.push(props.name)
 	  //   // return person
 	  // }
-	  console.log(props.name);
+	  console.log(props.list);
 	  return _react2.default.createElement(
 	    'div',
 	    null,
@@ -4410,7 +4410,18 @@
 	      _react2.default.createElement('input', { type: 'submit' })
 	    ),
 	    props.name,
-	    Object.keys(props.list),
+	    props.list ? props.list.map(function (ele, key) {
+	      return _react2.default.createElement(
+	        'li',
+	        { key: key },
+	        ' ',
+	        ele
+	      );
+	    }) : _react2.default.createElement(
+	      'p',
+	      null,
+	      '..loding'
+	    ),
 	    props.children
 	  );
 	};
@@ -6897,7 +6908,8 @@
 	    case 'CHANGE':
 	      return Object.assign({}, state, { name: action.data });
 	    case 'SUBMIT':
-	      return Object.assign({}, state, { list: state.list.concat(action.data) });
+	      // return Object.assign({}, state, {list: [...state.list, state.name]})
+	      return Object.assign({}, state, { list: state.list.concat(state.name) });
 	    default:
 	      return defaultState;
 	  }

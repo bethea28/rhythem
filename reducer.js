@@ -11,7 +11,8 @@ const reducer = (state = defaultState, action) =>{
     case 'CHANGE':
       return Object.assign({}, state, {name: action.data})
     case 'SUBMIT':
-      return Object.assign({}, state, {list: state.list.concat(action.data)})
+      // return Object.assign({}, state, {list: [...state.list, state.name]})
+      return Object.assign({}, state, {list: state.list.concat(state.name)})
     default:
       return defaultState
   }
