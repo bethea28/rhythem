@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
-import {change, submit} from './actions'
+import {change, submit, api} from './actions'
+import Ajax from './ajax'
 
 
 const App = (props) => {
@@ -25,6 +26,8 @@ const App = (props) => {
       {props.list && props.list.map((ele,key)=>{
         return <li>{ele}</li>
       })}
+      <Ajax serve = {props.api} />
+      {props.test.gender}
       {props.children}
     </div>
   )
@@ -33,13 +36,14 @@ const App = (props) => {
 const mapStateToProps = state => {
     return {
       name: state.name,
-      list: state.list
+      list: state.list,
+      test: state.test
     }
 }
 
 const dispatchStateToProps = dispatch => (
   bindActionCreators({
-    change, submit
+    change, submit, api
   }, dispatch)
 )
 

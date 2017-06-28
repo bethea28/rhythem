@@ -9,13 +9,16 @@ import {render} from 'react-dom'
 import ReactDOM from 'react-dom'
 import {HashRouter, Route, Router} from 'react-router-dom'
 
-const Routes = () => (
-  <div>
+const Routes = () => {
+  return (
+    <div>
 
-    <Route exact path = '/' component = {AppContainer}>
-    </Route>
-  </div>
-)
+      <Route exact path = '/' component = {AppContainer}>
+      </Route>
+    </div>
+
+  )
+}
 
 
 render(

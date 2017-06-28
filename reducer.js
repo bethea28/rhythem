@@ -2,7 +2,8 @@
 
 const defaultState = {
   name: '',
-  list: []
+  list: [],
+  test: ''
 }
 
 const reducer = (state = defaultState, action) =>{
@@ -13,6 +14,8 @@ const reducer = (state = defaultState, action) =>{
     case 'SUBMIT':
       // return Object.assign({}, state, {list: [...state.list, state.name]})
       return Object.assign({}, state, {list: state.list.concat(state.name)})
+    case "API":
+      return Object.assign({},state, {test: action.data})
     default:
       return defaultState
   }
