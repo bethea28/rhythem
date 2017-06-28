@@ -4397,6 +4397,9 @@
 	  //   // let person =  props.list.push(props.name)
 	  //   // return person
 	  // }
+	  // {props.list ? props.list.map((ele,key)=>{
+	  //   return <li key = {key}> {ele}</li>
+	  // }): <p>..loding</p>}
 	  console.log(props.list);
 	  return _react2.default.createElement(
 	    'div',
@@ -4410,18 +4413,13 @@
 	      _react2.default.createElement('input', { type: 'submit' })
 	    ),
 	    props.name,
-	    props.list ? props.list.map(function (ele, key) {
+	    props.list && props.list.map(function (ele, key) {
 	      return _react2.default.createElement(
 	        'li',
-	        { key: key },
-	        ' ',
+	        null,
 	        ele
 	      );
-	    }) : _react2.default.createElement(
-	      'p',
-	      null,
-	      '..loding'
-	    ),
+	    }),
 	    props.children
 	  );
 	};
@@ -6819,7 +6817,7 @@
 	var submit = exports.submit = function submit(data) {
 	  console.log('submit');
 	  return {
-	    type: 'SUBMIT', data: data
+	    type: 'SUBMIT'
 	  };
 	};
 	

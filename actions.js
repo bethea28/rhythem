@@ -6,7 +6,7 @@ export const change = (data) => {
 export const submit = (data) => {
   console.log('submit')
   return {
-    type: 'SUBMIT', data: data
+    type: 'SUBMIT',
   }
 }
 

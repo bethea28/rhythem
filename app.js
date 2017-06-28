@@ -11,6 +11,9 @@ const App = (props) => {
   //   // let person =  props.list.push(props.name)
   //   // return person
   // }
+  // {props.list ? props.list.map((ele,key)=>{
+  //   return <li key = {key}> {ele}</li>
+  // }): <p>..loding</p>}
   console.log(props.list)
   return (
     <div>
@@ -19,10 +22,9 @@ const App = (props) => {
         <input type = 'submit'></input>
       </form>
       {props.name}
-      {props.list ? props.list.map((ele,key)=>{
-        return <li key = {key}> {ele}</li>
-      }): <p>..loding</p>}
-
+      {props.list && props.list.map((ele,key)=>{
+        return <li>{ele}</li>
+      })}
       {props.children}
     </div>
   )
