@@ -5,7 +5,7 @@ import {change, submit, api} from './actions'
 import Ajax from './ajax'
 
 
-const App = (props) => {
+const App = (props) =>  
   // const submit = (props) => {
   //   event.preventDefault()
   //   console.log(props.name)

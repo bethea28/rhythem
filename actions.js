@@ -10,8 +10,9 @@ export const submit = (data) => {
     type: 'SUBMIT',
   }
 }
-const apihandle = (data) => {
+export const apihandle = (data) => {
   console.log(data)
+
   return {
     type: "API", data: data
   }

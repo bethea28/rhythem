@@ -6816,7 +6816,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.api = exports.submit = exports.change = undefined;
+	exports.api = exports.apihandle = exports.submit = exports.change = undefined;
 	
 	var _axios = __webpack_require__(264);
 	
@@ -6835,8 +6835,9 @@
 	    type: 'SUBMIT'
 	  };
 	};
-	var apihandle = function apihandle(data) {
+	var apihandle = exports.apihandle = function apihandle(data) {
 	  console.log(data);
+	
 	  return {
 	    type: "API", data: data
 	  };
