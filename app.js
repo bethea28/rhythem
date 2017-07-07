@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import {change, submit, api} from './actions'
 import Ajax from './ajax'
+import store from './store'
 
 
 const App = (props) => {
@@ -15,19 +16,18 @@ const App = (props) => {
   // {props.list ? props.list.map((ele,key)=>{
   //   return <li key = {key}> {ele}</li>
   // }): <p>..loding</p>}
-  console.log(props.list)
+  console.log(props)
   return (
     <div>
       <form onSubmit = {props.submit}>
         <input type = 'input' onChange = {(event) => {props.change(event.target.value)}} placeholder = 'name' ></input>
         <input type = 'submit'></input>
       </form>
-      {props.name}
+      {store.getState().name}
       {props.list && props.list.map((ele,key)=>{
         return <li>{ele}</li>
       })}
       <Ajax serve = {props.api} />
-      {props.test.gender}
       {props.children}
     </div>
   )
@@ -51,3 +51,5 @@ export default connect (
   mapStateToProps,
   dispatchStateToProps
 )(App)
+
+// export default App
