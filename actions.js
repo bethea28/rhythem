@@ -11,6 +11,13 @@ export const submit = (data) => {
     type: 'SUBMIT',
   }
 }
+
+export const hideAjaxButton = () => {
+    return{
+      type: 'AJAXHIDE', data: true
+    }
+}
+
 export const apihandle = (data) => {
   console.log(data)
 

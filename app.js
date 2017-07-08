@@ -1,49 +1,60 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
-import {change, submit, api} from './actions'
+import {change, submit, api, hideAjaxButton} from './actions'
 import Ajax from './ajax'
 import store from './store'
+import  './styles.scss'
 
 
 const App = (props) => {
-  // const submit = (props) => {
-  //   event.preventDefault()
-  //   console.log(props.name)
-  //   // let person =  props.list.push(props.name)
-  //   // return person
-  // }
-  // {props.list ? props.list.map((ele,key)=>{
-  //   return <li key = {key}> {ele}</li>
-  // }): <p>..loding</p>}
+
+  const change = (arg) => {
+
+    return {
+
+    }
+  }
+      // {!props.ajaxHide &&  <Ajax hide = {props.hideAjaxButton} serve = {props.api} />}
+ 
   console.log(props)
   return (
-    <div>
-      <form onSubmit = {props.submit}>
-        <input type = 'input' onChange = {(event) => {props.change(event.target.value)}} placeholder = 'name' ></input>
+    <main>
+      <form onClick = {change} className = 'form' onSubmit = {props.submit}>
+        <section>
+        <input id = 'inputName' type = 'input' onChange = {(event) => {props.change(event.target.value)}} placeholder = 'name' ></input>
+        </section>
+
+        <section>
         <input type = 'submit'></input>
+        </section>
       </form>
-      {store.getState().name}
+      {props.name}
+      
       {props.list && props.list.map((ele,key)=>{
         return <li>{ele}</li>
       })}
-      <Ajax serve = {props.api} />
+
+      {!props.ajaxHide  ? <Ajax hide = {props.hideAjaxButton} serve = {props.api} /> : ''}
+
       {props.children}
-    </div>
+    </main>
   )
 }
 
 const mapStateToProps = state => {
+  console.log(state.ajaxHide)
     return {
       name: state.name,
       list: state.list,
-      test: state.test
+      test: state.test,
+      ajaxHide: state.ajaxHide
     }
 }
 
 const dispatchStateToProps = dispatch => (
   bindActionCreators({
-    change, submit, api
+    change, submit, api, hideAjaxButton
   }, dispatch)
 )
 

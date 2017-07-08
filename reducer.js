@@ -3,7 +3,8 @@ import store from './store'
 const defaultState = {
   name: '',
   list: [],
-  test: ''
+  test: '',
+  ajaxHide: false
 }
 
 // const reducer = (state = defaultState, action) =>{
@@ -24,7 +25,7 @@ const defaultState = {
 // export default reducer
 
 const reducer = (state = defaultState, action) =>{
-  console.log(`this is ${state.name}`)
+  console.log(`this is ${state.ajaxHide}`)
   switch(action.type){
     case 'CHANGE':
       return Object.assign({}, state, {name: action.data})
@@ -32,6 +33,8 @@ const reducer = (state = defaultState, action) =>{
       return Object.assign({},state, {test: action.data})
     case 'SUBMIT':
     return Object.assign({}, state, {list: state.list.concat(store.getState().name)})
+    case 'AJAXHIDE':
+    return Object.assign({}, state, {ajaxHide: action.data})
     default:
       return defaultState
   }
