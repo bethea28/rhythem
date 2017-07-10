@@ -7,7 +7,7 @@ const Ajax = (props) => {
   return (
     <div>
      <button onMouseEnter = {props.hide} onClick = {props.serve}>
-      ajax
+      aja
      </button>
     </div>
   )
