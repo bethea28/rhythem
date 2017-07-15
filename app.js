@@ -20,11 +20,11 @@ const App = (props) => {
   console.log(props)
   return (
     <main>
-      <form onClick = {change} className = 'form' onSubmit = {props.submit}>
+      <form onClick = {change} className = 'form' onSubmit = {()=>{props.submit(props.name)}}>
         <section>
         <input id = 'inputName' type = 'input' onChange = {(event) => {props.change(event.target.value)}} placeholder = 'name' ></input>
         </section>
-
+     
         <section>
         <input type = 'submit'></input>
         </section>
@@ -32,7 +32,7 @@ const App = (props) => {
       {props.name}
       
       {props.list && props.list.map((ele,key)=>{
-        return <li>{ele}</li>
+        return <li key = {key}> {ele}</li>
       })}
 
       {!props.ajaxHide  ? <Ajax hide = {props.hideAjaxButton} serve = {props.api} /> : ''}
@@ -43,12 +43,13 @@ const App = (props) => {
 }
 
 const mapStateToProps = state => {
-  console.log(state.ajaxHide)
+
+  console.log('state',state)
     return {
-      name: state.name,
-      list: state.list,
-      test: state.test,
-      ajaxHide: state.ajaxHide
+      name: state.reducer.name,
+      list: state.submitReducer.list,
+      test: state.reducer.test,
+      ajaxHide: state.reducer.ajaxHide
     }
 }
 

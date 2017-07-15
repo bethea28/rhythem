@@ -1,6 +1,7 @@
 import axios from 'axios'
 
 export const change = (data) => {
+  console.log('data',data)
   return {
     type: 'CHANGE', data: data
   }
@@ -9,6 +10,7 @@ export const submit = (data) => {
   console.log('submit')
   return {
     type: 'SUBMIT',
+    data: data
   }
 }
 
