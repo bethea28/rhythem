@@ -8073,9 +8073,9 @@ var change = exports.change = function change(data) {
     type: 'CHANGE', data: data
   };
 };
-var submit = exports.submit = function submit(data) {
-  // e.preventDefault()
-  // console.log('submit', data)
+var submit = exports.submit = function submit(e, data) {
+  e.preventDefault();
+  console.log('submit', e.preventDefault, data);
   return {
     type: 'SUBMIT',
     data: data
@@ -13595,7 +13595,7 @@ var App = function App(props) {
     _react2.default.createElement(
       'form',
       { className: 'form', onSubmit: function onSubmit(event) {
-          changeSubmit(event);
+          props.submit(event, props.name);
         } },
       _react2.default.createElement(
         'section',

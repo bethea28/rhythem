@@ -6,9 +6,9 @@ export const change = (data) => {
     type: 'CHANGE', data: data
   }
 }
-export const submit = (data) => {
-  // e.preventDefault()
-  // console.log('submit', data)
+export const submit = (e,data) => {
+  e.preventDefault()
+  console.log('submit', e.preventDefault, data)
   return {
     type: 'SUBMIT',
     data: data

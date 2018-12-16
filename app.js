@@ -22,7 +22,7 @@ props.submit(props.name)
   console.log('props',props.list)
   return (
     <main>
-      <form  className = 'form' onSubmit = {(event)=>{changeSubmit(event)}}>
+      <form  className = 'form' onSubmit = {(event)=>{props.submit(event,props.name)}}>
           <section>
             <input id = 'inputName' type = 'input' onChange = {(event) => {props.change(event.target.value)}} placeholder = 'nameigg' >
 
