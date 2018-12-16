@@ -4,6 +4,7 @@ import {bindActionCreators} from 'redux'
 import {change, submit, api, hideAjaxButton} from './actions'
 import Ajax from './ajax'
 import store from './store'
+import Form from './form'
 import  './styles.scss'
 
 
@@ -22,7 +23,9 @@ props.submit(props.name)
   console.log('props',props.list)
   return (
     <main>
-      <form  className = 'form' onSubmit = {(event)=>{props.submit(event,props.name)}}>
+      <Form  changeSubmit ={(event)=>{props.submit(event, props.name)}}  change = {(event)=>{props.change(event.target.value)}}/>
+      
+      {/* <form  className = 'form' onSubmit = {(event)=>{props.submit(event,props.name)}}>
           <section>
             <input id = 'inputName' type = 'input' onChange = {(event) => {props.change(event.target.value)}} placeholder = 'nameigg' >
 
@@ -32,7 +35,7 @@ props.submit(props.name)
           <section>
             <input type = 'submit'></input>
           </section>
-      </form>
+      </form> */}
       {props.name}
       
       <ul>

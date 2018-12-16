@@ -1,13 +1,13 @@
-// import React, {Component} from 'react'
-// import {connect} from 'react-redux'
-// import {bindActionCreators} from 'redux'
-// import {change, submit, api, hideAjaxButton} from './actions'
-// import Ajax from './ajax'
-// import store from './store'
-// import  './styles.scss'
+import React, {Component} from 'react'
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
+import {change, submit, api, hideAjaxButton} from './actions'
+import Ajax from './ajax'
+import store from './store'
+import  './styles.scss'
 
 
-// const Form = (props) => {
+const Form = (props) => {
 
 //   const changeSubmit = (event) => {
 //     event.preventDefault()
@@ -17,25 +17,27 @@
 
 //     // }
 //   }
-//       // {!props.ajaxHide &&  <Ajax hide = {props.hideAjaxButton} serve = {props.api} />}
+      // {!props.ajaxHide &&  <Ajax hide = {props.hideAjaxButton} serve = {props.api} />}
  
-//   console.log('props',props.list)
-//   return (
-//     <main>
-//       <form  className = 'form' onSubmit = {(event)=>{changeSubmit(event)}}>
-//           <section>
-//             <input id = 'inputName' type = 'input' onChange = {(event) => {props.change(event.target.value)}} placeholder = 'nameigg' >
+  console.log('props',props.list)
+  return (
+    <main>
+      <form  className = 'form' onSubmit = {(event)=>{props.changeSubmit(event)}}>
+      {/* <form  className = 'form' onSubmit = {(event)=>{changeSubmit(event)}}> */}
+          <section>
+            <input id = 'inputName' type = 'input' onChange = {(event) => {props.change(event)}} placeholder = 'nameigg' >
+            {/* <input id = 'inputName' type = 'input' onChange = {(event) => {props.change(event.target.value)}} placeholder = 'nameigg' > */}
 
-//             </input>
-//           </section>
+            </input>
+          </section>
      
-//           <section>
-//             <input type = 'submit'></input>
-//           </section>
-//       </form>
-//     </main>
-//   )
-// }
+          <section>
+            <input type = 'submit'></input>
+          </section>
+      </form>
+    </main>
+  )
+}
 
 // const mapStateToProps = state => {
 
@@ -59,4 +61,4 @@
 //   dispatchStateToProps
 // )(Form)
 
-// // export default App
+export default Form

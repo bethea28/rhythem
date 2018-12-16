@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export const change = (data) => {
-  // console.log('change',data)
+  console.log('change',data)
   return {
     type: 'CHANGE', data: data
   }

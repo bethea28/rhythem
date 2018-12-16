@@ -8068,7 +8068,7 @@ var _axios2 = _interopRequireDefault(_axios);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var change = exports.change = function change(data) {
-  // console.log('change',data)
+  console.log('change', data);
   return {
     type: 'CHANGE', data: data
   };
@@ -13572,6 +13572,10 @@ var _store = __webpack_require__(31);
 
 var _store2 = _interopRequireDefault(_store);
 
+var _form = __webpack_require__(311);
+
+var _form2 = _interopRequireDefault(_form);
+
 __webpack_require__(306);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -13592,24 +13596,11 @@ var App = function App(props) {
   return _react2.default.createElement(
     'main',
     null,
-    _react2.default.createElement(
-      'form',
-      { className: 'form', onSubmit: function onSubmit(event) {
-          props.submit(event, props.name);
-        } },
-      _react2.default.createElement(
-        'section',
-        null,
-        _react2.default.createElement('input', { id: 'inputName', type: 'input', onChange: function onChange(event) {
-            props.change(event.target.value);
-          }, placeholder: 'nameigg' })
-      ),
-      _react2.default.createElement(
-        'section',
-        null,
-        _react2.default.createElement('input', { type: 'submit' })
-      )
-    ),
+    _react2.default.createElement(_form2.default, { changeSubmit: function changeSubmit(event) {
+        props.submit(event, props.name);
+      }, change: function change(event) {
+        props.change(event.target.value);
+      } }),
     props.name,
     _react2.default.createElement(
       'ul',
@@ -30728,6 +30719,100 @@ module.exports = function(originalModule) {
 	return module;
 };
 
+
+/***/ }),
+/* 311 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(6);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(69);
+
+var _redux = __webpack_require__(42);
+
+var _actions = __webpack_require__(76);
+
+var _ajax = __webpack_require__(149);
+
+var _ajax2 = _interopRequireDefault(_ajax);
+
+var _store = __webpack_require__(31);
+
+var _store2 = _interopRequireDefault(_store);
+
+__webpack_require__(306);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Form = function Form(props) {
+
+  //   const changeSubmit = (event) => {
+  //     event.preventDefault()
+  // // console.log('events',event.preventDefault())
+  // props.submit(props.name)
+  //     // return {
+
+  //     // }
+  //   }
+  // {!props.ajaxHide &&  <Ajax hide = {props.hideAjaxButton} serve = {props.api} />}
+
+  console.log('props', props.list);
+  return _react2.default.createElement(
+    'main',
+    null,
+    _react2.default.createElement(
+      'form',
+      { className: 'form', onSubmit: function onSubmit(event) {
+          props.changeSubmit(event);
+        } },
+      _react2.default.createElement(
+        'section',
+        null,
+        _react2.default.createElement('input', { id: 'inputName', type: 'input', onChange: function onChange(event) {
+            props.change(event);
+          }, placeholder: 'nameigg' })
+      ),
+      _react2.default.createElement(
+        'section',
+        null,
+        _react2.default.createElement('input', { type: 'submit' })
+      )
+    )
+  );
+};
+
+// const mapStateToProps = state => {
+
+//   // console.log('state',state)
+//     return {
+//       name: state.reducer.name,
+//       list: state.submitReducer.list,
+//       test: state.reducer.test,
+//       ajaxHide: state.reducer.ajaxHide
+//     }
+// }
+
+// const dispatchStateToProps = dispatch => (
+//   bindActionCreators({
+//     change, submit, api, hideAjaxButton
+//   }, dispatch)
+// )
+
+// export default connect (
+//   mapStateToProps,
+//   dispatchStateToProps
+// )(Form)
+
+exports.default = Form;
 
 /***/ })
 /******/ ]);
