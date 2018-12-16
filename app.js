@@ -9,33 +9,41 @@ import  './styles.scss'
 
 const App = (props) => {
 
-  const change = (arg) => {
+  const changeSubmit = (event) => {
+    event.preventDefault()
+// console.log('events',event.preventDefault())
+props.submit(props.name)
+    // return {
 
-    return {
-
-    }
+    // }
   }
       // {!props.ajaxHide &&  <Ajax hide = {props.hideAjaxButton} serve = {props.api} />}
  
-  console.log(props)
+  console.log('props',props.list)
   return (
     <main>
-      <form onClick = {change} className = 'form' onSubmit = {()=>{props.submit(props.name)}}>
-        <section>
-        <input id = 'inputName' type = 'input' onChange = {(event) => {props.change(event.target.value)}} placeholder = 'name' ></input>
-        </section>
+      <form  className = 'form' onSubmit = {(event)=>{changeSubmit(event)}}>
+          <section>
+            <input id = 'inputName' type = 'input' onChange = {(event) => {props.change(event.target.value)}} placeholder = 'nameigg' >
+
+            </input>
+          </section>
      
-        <section>
-        <input type = 'submit'></input>
-        </section>
+          <section>
+            <input type = 'submit'></input>
+          </section>
       </form>
       {props.name}
       
-      {props.list && props.list.map((ele,key)=>{
-        return <li key = {key}> {ele}</li>
-      })}
+      <ul>
 
-      {!props.ajaxHide  ? <Ajax hide = {props.hideAjaxButton} serve = {props.api} /> : ''}
+        {props.list.map((a,b)=>{
+          return <li key ={b}>{a}</li>
+        })}
+     
+      </ul>
+
+      {/* {!props.ajaxHide  ? <Ajax hide = {props.hideAjaxButton} serve = {props.api} /> : ''} */}
 
       {props.children}
     </main>
@@ -44,7 +52,7 @@ const App = (props) => {
 
 const mapStateToProps = state => {
 
-  console.log('state',state)
+  // console.log('state',state)
     return {
       name: state.reducer.name,
       list: state.submitReducer.list,

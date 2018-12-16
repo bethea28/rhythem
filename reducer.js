@@ -28,7 +28,7 @@ const reducer = (state = defaultState, action) =>{
   switch(action.type){
 
     case 'CHANGE':
-    console.log('change is happen')
+    // console.log('change is happen')
       return Object.assign({}, state, {name: action.data})
     case "API":
       return Object.assign({},state, {test: action.data})

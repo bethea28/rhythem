@@ -29,7 +29,7 @@ module.exports = {
   },
   devtool: 'source-map',
   resolve: {
-    extensions: ["", ".js", ".jsx"],
+    extensions: ["*", ".js", ".jsx"],
   },
   resolveLoader: {
     moduleExtensions: ['-loader']
